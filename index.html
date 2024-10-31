@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(arg) {
+        console.log("f1", arg);
+        return arg;
+        }
+        function f2(arg) {
+        console.log("f2", arg);
+        return arg;
+        }
+        function f3(arg) {
+        console.log("f3", arg);
+        return arg;
+        }
+
+        // step1: 啰嗦
+        f1("omg");
+        f2("omg");
+        f3("omg");
+
+        // step2 洋葱 不太便于维护
+        f1(f2(f3("omg")));
+
+        //step3
+        let res = compose(f1, f2, f3);
+        let res2 = compose(f1, f2, f3)('omg');
+        let res1 = compose1(f1, f2, f3);
+        let res12 = compose1(f1, f2, f3)('omg');
+        // 不传递参数('omg') res 返回 (...args) => a(b(...args))
+        console.log("res", res); //sy-log
+        console.log("res2", res2); //sy-log
+        console.log("res1", res1); //sy-log
+        console.log("res12", res12); //sy-log
+        // 返回一个函数
+        function compose(...funcs) {
+            return funcs.reduce((a, b) => (...args) => a(b(...args)));
+        }
+        function compose1(...funcs){
+            return (...args) => funcs[0](...args) + funcs[1](...args) + funcs[2](...args)
+        }
+        /* 函数式编程 聚合和柯里化 */
+        // function bar() {
+        // console.log(myName)
+        // }
+
+        function foo() {
+            let myName = "Foo";
+            obj.bar();
+            obj.bar1();
+        }
+        let myName = "Jary"
+        let obj = {
+            myName: 'obj',
+            bar() {
+                console.log(myName)
+            },
+            bar1: () =>  {
+                console.log(myName)
+            }
+        };
+        foo();
+        // obj.bar();
+    </script>
+</body>
+</html>

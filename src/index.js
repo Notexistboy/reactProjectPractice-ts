@@ -1,17 +1,50 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+// import { Component } from 'react';
+// import ReactDOM from "react-dom";
+import ReactDOM from './kreact-fiber/react-dom';
+import Component from './kreact-fiber/Component';
+import store from './store';
+import { Provider } from './kreact-redux';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+class ClassComponent extends Component {
+  render() {
+    return (
+      <div className="border">
+        <p>{this.props.name}</p>
+      </div>
+    );
+  }
+}
+
+function FunctionComponent(props) {
+  return (
+    <div className="border">
+      <p>{props.name}</p>
+    </div>
+  );
+}
+
+const jsx = (
+  <div className="border">
+    <p>全栈</p>
+    <a href="https://www.kaikeba.com/">开课吧</a>
+    <FunctionComponent name="函数组件" />
+    {/* <ClassComponent name="类组件" /> */}
+  </div>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// ReactDOM.render(jsx, document.getElementById('root'));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
+
+// 文本标签
+// 原生标签
+// 函数组件
+// 类组件
