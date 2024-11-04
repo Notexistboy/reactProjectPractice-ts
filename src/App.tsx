@@ -1,7 +1,7 @@
-import React ,{useState}from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import HocPage from './pages/HocPage'
-import FormPage from './pages/FormPage'
+import HocPage from './pages/HocPage';
+import FormPage from './pages/FormPage';
 //import FormPage2 from './pages/FormPage2'
 /* import FormPageMine from './pages/FormPageMine'
 import DialogPageMine from './pages/DialogPageMine'
@@ -17,7 +17,7 @@ import AntdFormPage2 from './pages/AntdFormPage2'
 // import ReduxPage from './pages/ReduxPage'
 // import ReactReduxPage from './pages/ReactReduxPage'
 // import ReactReduxHookPage from './pages/ReactReduxHookPage'
-import RouteAllPage from './pages/RouteAllPage'
+import RouteAllPage from './pages/RouteAllPage';
 // import RouteChildrenPage from './pages/RouteChildrenPage'
 // import RouteRenderPage from './pages/RouteRenderPage'
 
@@ -29,7 +29,7 @@ import RouteAllPage from './pages/RouteAllPage'
 // import UseCallbackPage from './pages/UseCallbackPage'
 
 function App() {
-  const [num,setNumber] = useState(0)
+  // const [num, setNumber] = useState(0);
   return (
     <div className="App">
       {/* 高阶组件 */}
@@ -47,7 +47,7 @@ function App() {
       {/* <ReduxPage /> */}
       {/* <button onClick={() => {setNumber(num+1)}}>change{num}</button>*/}
       {/* <ReactReduxPage msg="msg"/>  */}
-     {/*  <ReactReduxHookPage /> */}
+      {/*  <ReactReduxHookPage /> */}
       <RouteAllPage />
       {/* <RouteRenderPage /> */}
       {/* <RouteChildrenPage /> */}

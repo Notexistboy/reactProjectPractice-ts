@@ -1,13 +1,13 @@
-import React, {Component} from "react";
-import {RouterContext} from "./Context";
+import React, { Component } from 'react';
+import RouterContext from './RouterContext';
 
 export default class Redirect extends Component {
   render() {
     return (
       <RouterContext.Consumer>
-        {(context) => {
-          const {history} = context;
-          const {to, push = false} = this.props;
+        {context => {
+          const { history } = context;
+          const { to, push = false } = this.props;
           // history.go()
           return (
             <LifeCycle

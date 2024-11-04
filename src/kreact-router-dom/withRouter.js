@@ -1,9 +1,9 @@
-import RouterContext from "./RouterContext";
+import RouterContext from './RouterContext';
 
-const withRouter = (WrapperComponent) => (props) => {
+const withRouter = WrapperComponent => props => {
   return (
     <RouterContext.Consumer>
-      {(context) => {
+      {context => {
         return <WrapperComponent {...props} {...context} />;
       }}
     </RouterContext.Consumer>

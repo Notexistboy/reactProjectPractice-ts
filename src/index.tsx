@@ -1,24 +1,29 @@
 import React from 'react';
-// import { Component } from 'react';
-// import ReactDOM from "react-dom";
-import ReactDOM from './kreact-fiber/react-dom';
-import Component from './kreact-fiber/Component';
+import { Component } from 'react';
+import ReactDOM from 'react-dom';
+// import ReactDOM from './kreact-fiber/react-dom';
+// import Component from './kreact-fiber/Component';
 import store from './store';
 import { Provider } from './kreact-redux';
 import App from './App';
 import './index.css';
 
-class ClassComponent extends Component {
+type MyProps = any;
+type MyState = { value: string };
+class ClassComponent extends Component<MyProps, MyState> {
+  constructor(props: any) {
+    super(props);
+  }
   render() {
     return (
       <div className="border">
-        <p>{this.props.name}</p>
+        <p>{this.props?.name}</p>
       </div>
     );
   }
 }
 
-function FunctionComponent(props) {
+function FunctionComponent(props: any) {
   return (
     <div className="border">
       <p>{props.name}</p>
